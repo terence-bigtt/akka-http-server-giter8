@@ -1,0 +1,16 @@
+{"openapi": "3.0.0",
+  "info": {
+    "description": "",
+    "version": "1.0.0",
+    "title": "$serviceName$"
+  },
+  "components": {
+    "schemas": {}
+  },
+  "servers": [
+    {
+      "url": "$interface$:$port$/"
+    }
+  ],
+  "tags":[]
+}
