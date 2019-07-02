@@ -10,6 +10,8 @@ mainClass in(Compile, run) := Some("$packageName$.Main")
 mainClass in(Compile, packageBin) := Some("$packageName$.Main")
 mainClass in(Compile, packageBin) := Some("$packageName$.Main")
 
+dependsOn(RootProject(uri("git://github.com/cetic/inah-commons.git")))
+
 assemblyMergeStrategy in assembly := {
   case PathList("javax", "servlet", xs@_*) => MergeStrategy.first
   case PathList("META-INF", "services", "org.apache.hadoop.fs.FileSystem") => MergeStrategy.filterDistinctLines
