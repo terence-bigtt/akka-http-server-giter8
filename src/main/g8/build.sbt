@@ -10,8 +10,6 @@ mainClass in(Compile, run) := Some("$packageName$.Main")
 mainClass in(Compile, packageBin) := Some("$packageName$.Main")
 mainClass in(Compile, packageBin) := Some("$packageName$.Main")
 
-dependsOn(RootProject(uri("git://github.com/cetic/inah-commons.git")))
-
 assemblyMergeStrategy in assembly := {
   case PathList("javax", "servlet", xs@_*) => MergeStrategy.first
   case PathList("META-INF", "services", "org.apache.hadoop.fs.FileSystem") => MergeStrategy.filterDistinctLines
@@ -33,4 +31,6 @@ libraryDependencies := Seq(
 
   "com.typesafe.akka" %% "akka-testkit" % akkaVersion % "test",
   "org.scalacheck" %% "scalacheck" % "1.13.5" % Test,
+  "be.cetic.inah.commons" % "commons" % "0.0.1" from "https://github.com/cetic/inah-commons/raw/master/releases/inah-commons-0.0.1.jar"
+
 )
