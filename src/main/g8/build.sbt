@@ -46,7 +46,7 @@ dockerExposedPorts := List(8000)
 
 dockerBaseImage := "openjdk"
 
-dockerRepository := Some($dockerRepo)
+dockerRepository := Some( $dockerRepo )
 
 defaultLinuxInstallLocation in Docker := "/usr/local"
 
