@@ -1,3 +1,4 @@
+
 name := "$name;format="lower"$"
 scalaVersion := "2.12.8"
 
@@ -32,5 +33,23 @@ libraryDependencies := Seq(
   "com.typesafe.akka" %% "akka-testkit" % akkaVersion % "test",
   "org.scalacheck" %% "scalacheck" % "1.13.5" % Test,
   "be.cetic.inah.commons" % "commons" % "0.0.1" from "https://github.com/cetic/inah-commons/raw/master/releases/inah-commons-0.0.1.jar"
-
 )
+
+
+packageName in Docker := packageName.value
+
+version in Docker := version.value
+
+dockerExposedPorts := List(8000)
+
+//dockerLabels := Map("maintainer" -> "NoReply@steveking.site")
+
+dockerBaseImage := "openjdk"
+
+dockerRepository := Some($dockerRepo)
+
+defaultLinuxInstallLocation in Docker := "/usr/local"
+
+daemonUser in Docker := "daemon"
+
+mappings in Universal ++= directory( baseDirectory.value / "src" / "main" / "resources" )
